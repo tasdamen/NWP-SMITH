@@ -1,0 +1,80 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Catalog API
+  description: Move your app forward with the catalog api
+  version: "1.0.0"
+# the domain of the service
+host: adm-newpapi:9000
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /api
+produces:
+  - application/json
+paths:
+  /product:
+    get:
+      summary: Product Types
+      description: |
+        The Products endpoint returns information about the *Uber* products
+        offered at a given location. The response includes the display name
+        and other details about each product, and lists the products in the
+        proper display order.
+      parameters:
+        - name: id
+          in: query
+          description: The ID of the product.
+          required: false
+          type: number
+          format: integer
+      tags:
+        - Products
+      responses:
+        200:
+          description: An array of products
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Product:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific product for a given latitude & longitude. For example, uberX in San Francisco will have a different product_id than uberX in Los Angeles.
+      name:
+        type: string
+        description: Description of product
+      qtyPerUnit:
+        type: string
+        description: How many items can be bought in one order
+      price:
+        type: number
+        description: The price of the item
+      stockQty:
+        type: number
+        description: The quantity of the items in stock
+      onOrder:
+        type: number
+        description: The amount being placed on order
+      reorderLevel:
+        type: number
+        description: The amount being placed on order. 
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
