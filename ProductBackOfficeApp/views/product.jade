@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    div(ng-controller='proudctController', class='container')
+      table(class='table')
+        tr
+          th Product ID
+          th Name
+          th Price
+        tr(ng-repeat='product in products')
+          td {{product.id}}
+          td
+            a(ng-href='#'){{product.name}}
+          td {{product.price | currency}}
+    
+  
+   
+   

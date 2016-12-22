@@ -1,0 +1,16 @@
+{
+  "name": "product-back-office-app",
+  "version": "0.0.0",
+  "description": "ProductBackOfficeApp",
+  "main": "app.js",
+  "author": {
+    "name": "Tasneem.Saleem"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*",
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0"
+  }
+}

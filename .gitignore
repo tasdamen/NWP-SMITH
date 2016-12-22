@@ -1,0 +1,41 @@
+# Optional REPL history
+.node_repl_history
+
+# Excluding the packages
+packages
+
+# Removing the bin folder
+/ProductAPI/bin/*
+/ProductAPI/obj/*
+ProductStorage/obj/*
+ProductStorage/bin/**/*
+# Excluding node modules
+ProductBackOfficeApp/node_modules
+ProductBackOfficeApp/bin
+
+.vs/
+#Ignore files build by Visual Studio
+*.obj
+*.pdb
+*.exe
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+
