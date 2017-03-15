@@ -38,4 +38,4 @@ ProductBackOfficeApp/bin
 obj/
 [Rr]elease*/
 _ReSharper*/
-
+*.dbmdl
