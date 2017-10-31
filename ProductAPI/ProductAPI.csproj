@@ -95,11 +95,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Mappers\ProductMapper.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
