@@ -21,10 +21,19 @@ namespace OfferAPI
                         return offer.EligibleProducts;
                     }).Distinct()
                     .OrderBy(i => i)
-                    .Select(Id => $"<a href=\"http://localhost:8081/{Id}\">{Id}</a>"));
-                    
+                    .Select(Id => $"<a href=\"{request.Url}{Id}\">{Id}</a>"));
+
             }
-            return "Not implemented";
+            else
+            {
+                var rawProductId = route.Substring(1);
+                int productId;
+                if(int.TryParse(rawProductId, out productId))
+                {
+                    return OffersRepository.GetBestOffer(productId);
+                }
+                return "Invalid product Id";
+            }
         }
     }
 }

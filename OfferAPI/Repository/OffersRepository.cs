@@ -36,5 +36,20 @@ namespace OfferAPI.Repository
                 return new List<Offer>();
         }
 
+        public static string GetBestOffer(int productId)
+        {
+            var bestOffer = GetAllOffers().Where(offer =>
+            {
+                return offer.Expiration > DateTime.Now && offer.EligibleProducts.Contains(productId);
+            }).OrderBy(offer => offer.Discount)
+            .FirstOrDefault();
+
+            if (bestOffer == null)
+                return $"no offer found for product id: {productId}";
+
+            return $"Offer Title: {bestOffer.Title}\nDiscount: {bestOffer.Discount}";
+            
+
+        }
     }
 }
