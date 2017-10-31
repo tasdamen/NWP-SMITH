@@ -36,6 +36,15 @@ namespace OfferAPI.Repository
                 return new List<Offer>();
         }
 
+        public static string GetAllOffers(int productId)
+        {
+            var allOffers = GetAllOffers().Where(offer =>
+            {
+                return offer.Expiration > DateTime.Now && offer.EligibleProducts.Contains(productId);
+            });
+            return string.Join("\n", allOffers.Select(offer => $"Title: {offer.Title}"));
+        }
+
         public static string GetBestOffer(int productId)
         {
             var bestOffer = GetAllOffers().Where(offer =>
