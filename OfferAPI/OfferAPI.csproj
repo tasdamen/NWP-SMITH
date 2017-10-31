@@ -74,6 +74,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Actors\DefaultActor.cs" />
+    <Compile Include="Repository\OffersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
